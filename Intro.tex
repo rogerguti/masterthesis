@@ -1,0 +1,88 @@
+\chapter{Introduction}
+\label{cha:intro}
+%-----------------------------------
+\section{Purpose}
+
+This is the System Requirements Document (SRD) for the Real Time System Project within the course Onboard Data Handling. It concerns the software for a rover, which shall be controlled by commands and send telemetry. The overall purpose of this system is, to give students training in various aspects of software engineering for systems including low level hardware interfaces.\\
+
+This document is prepared to define the requirements of the software and will be used as a reference for the design.
+
+\section{Scope}
+
+This document is redacted as part of the development of the software for a rover that will receive and execute commands as well as send telemetry containing the battery status. The actions of the rover which shall be controlled are the movements, the grip arm and the camera.\\
+
+Therefore it is applicable to the entire onboard software of the rover.
+
+
+
+\section{Definitions, acronyms, abbreviations}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{2cm}|L{9cm}|}
+\hline
+ ADC & Analog to Digital Converter\\
+ \hline
+ ASW & Application Software  \\
+ \hline
+ ESA & European Space Agency\\
+ \hline
+ GS & Ground Station\\
+ \hline
+ HOOD & Hierarchic Object-Oriented Design\\
+ \hline
+ I & Motor Current (given in Ampere)\\
+ \hline
+ IEEE & Institute of Electrical and Electronics Engineers\\
+ \hline
+ OS & Operating System\\
+ \hline
+ SRD & System Requirements Document\\
+ \hline
+ SW & Software\\
+ \hline
+ TBD & To Be Decided\\
+ \hline
+ TC & Telecommand\\
+ \hline
+ TM & Telemetry\\
+ \hline
+ U & Battery Voltage (given in Volt)\\
+ \hline
+\end{tabular}
+\label{tab:abbr}
+\end{table}
+
+
+\section{References}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|L{2cm}|L{4cm}|L{8cm}|}
+\hline
+Reference & Code & Title \\
+\hline
+\hline
+[1] & ESA BSSC (96) & Guide to applying the ESA software engineering standards to small software projects\\
+\hline
+[2] & ESA PSS-05-03 & Guide to the software requirements definition phase\\
+\hline
+[3] & IEEE Std 830-1998 & IEEE Recommended Practice for Software Requirements Specifcations\\
+\hline
+[4] & OBDH\_A1 & C-Standard for Balloon Project\\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+
+\section{Overview}
+
+This document consists of
+\begin{itemize}
+\item a short introduction (Chapter 1) stating the purpose of the document, references and used abbreviations
+\item an overview of the system (Chapter 2) as a simplified logical model showing its basic functions
+\item the requirements for the software (Chapter 3) to fulfil the aforementioned purposes
+\end{itemize}
+
+
