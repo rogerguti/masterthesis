@@ -1,0 +1,211 @@
+%LaTeX Vorlage by Thomas Krueger & Philipp Schnetter Version 2.0 2010
+%------------------------------------
+% Anleitung:
+% -neues Projekt �ffnen
+% -Projekt in gew�nschtem Ordner speichern, unter gew�nschtem Namen (DA_Name) 
+% -den Inhalt dieser Vorlage in die Projektdatei kopieren
+% -die beigef�gten Dateien (Literaturverzeichnis, Kapitel 1, etc.) in den gleichen Projektordner kopieren 
+%------------------------------------
+\documentclass[a4paper,twoside,11pt]{scrreprt}	%Definition der Dokumentenklasse
+																				 %{scrbook}
+																				 %{report}   - Kapitel beginnt mit "Kapitel X"
+																				 %{scrreprt} - Kapitel beginnt mit dem Namen des Kapitels
+																				 %[fleqn]    - Gleichungen links ausgerichtet
+%------------------------------------
+\usepackage[T1]{fontenc} 				%automatische Silbentrennung
+\usepackage{lmodern}						%Type1-Schriftart f�r nicht-englische Texte
+%\usepackage[ngerman]{babel} 	 	%Deutsche �bersetzungen        
+\usepackage[utf8]{inputenc} 	%Sonderzeichen "ae"	%[latin1]?
+%\usepackage{graphicx} 					%Zum Laden von Grafiken
+\usepackage[dvips,final]{graphicx}
+\usepackage{pdfpages} 					%Einbinden von PDF-Seiten
+\usepackage{subfig} 						%Teilabbildungen in einer Abbildung
+
+%\usepackage{subfigure}
+\usepackage{amsmath}						%Packages f�r Formeln
+\usepackage{amsthm}							% -||-
+\usepackage{amsfonts}						% -||-
+\usepackage{amssymb}						% -||-
+\usepackage{mathptmx}						% -||-
+%\usepackage{setspace}					%Andere Art um Zeilenabstand anzugeben. Mit \onehalfspacing wird Zeilenabstand auf 1.5 gesetzt.
+\usepackage{trfsigns}						%F�r Transformationszeichen wie Laplace o--o usw.
+%\usepackage{a4wide} 						%Kleinere Seitenr�nder = mehr Text pro Zeile.
+\usepackage{fancyhdr} 					%Fancy Kopf- und Fu�zeilen
+\pagestyle{fancy}
+\usepackage{listings}						%Erlaubt es farblosen Quellcode so ziemlich jeder Sprache einzuf�gen. \begin{lstlisting} ~code~ \end{lstlisting}
+%\usepackage[hang,small,bf]{caption} %Erscheinungsbild der Bild- und Tabellenbeschriftung anpassen
+\usepackage[german]{varioref}		%Erzeugt durch \vref eine Referenz zum Kapitel und zu einer Seite, wenn Kapitel nicht auf aktuellen Seite ist.
+\usepackage{units}							%Einheiten in math-Umgebung nicht kursiv 
+\usepackage{longtable}  				%Tabelle mehr als ein Seite lang: \begin{longtable}
+\usepackage{supertabular}				%Ebenfalls mehrseitige Tabelle, jedoch mit der M�glichkeit Parameter pro Seite zu ver�ndern.
+\usepackage{tabularx}						%Um Tabellen auf die breite der Seite zu bekommen, werden mit "X" markierte  Spalten gestaucht, die anderen nicht
+\usepackage{rotating}						%drehen Tab,Fig:\begin{sideways},\begin{rotate}{30}
+\usepackage{url}								%Einf�gen von URLs mit \url{http://www.Seitennahme.de/}
+\usepackage{color}							%Erlaubt farbigen Text \textcolor{declared-color}{text}
+\usepackage{xcolor}							%Erweiterung zu color mit Zugriff auf verschiedene Arten von Farbnuancen
+\usepackage{textcomp}						%Erlaubt dei Verwendung von Sonderzeichen
+%\usepackage[numbered]{mcode}		%Erlaubt das Einbinden von farbigen M-code. \lstinputlisting{mfile.m}
+%\usepackage{dsfont}							%F�r mathematische Schriftstile
+\usepackage{enumitem}						%Aufz�hlungen
+\usepackage{fancyhdr,extramarks}%Paket f�r Kopf- Fu�zeile laden
+\usepackage{lineno}							%Paket f�r Zeilennummerierung
+\usepackage{float}							%Bilder mit "H" in \begin{figure}[H] an genau die Stelle im Text setzen. Mehr Optionen f�r Bilder/Diagramme
+\usepackage{multirow}						%Zusammenfassung mehrerer Reihen in einer Tabellenspalte
+%\usepackage{multicolumn}				%Zusammenfassung mehrerer	Spalten in einer Tabellenreihe
+\usepackage{booktabs}						%Erzeugt hochwertigere horizontale Striche in Tabellen
+\usepackage{helvet}							%Laden der Schriftart Helvetica 
+\usepackage{times}							%Laden der Schriftart Times
+\usepackage{palatino}						%Laden der Schriftart Palatino
+\usepackage{courier}						%Laden der Schriftart Courier
+\usepackage{pifont}							%Weitere Sonderzeichen und Symbole
+\usepackage{ulem}								%Erlaubt Unterstreichen mit \uline, \uuline \uwave usw.
+\usepackage{cite}								%Literaturreferenzen der Form [x]
+\usepackage{lscape}							%Querformatiges Beschreiben einzelner Abschnitte mit \begin{landscape} Text \end{landscape}
+\usepackage{geometry}						%Zum Einrichten der Seitenraender
+\usepackage{tikz}   %TikZ is required for this to work.  Make sure this exists before the next line
+\usepackage{epsfig} %F�r gnuplot
+\usepackage{epstopdf} %F�r gnuplot
+\usepackage{pgf}								%F�r Tikz
+%\usepackage{xcolor}							%F�r Tikz
+\usetikzlibrary{shadows}
+\usetikzlibrary{shapes,backgrounds}
+%\usepackage{3dplot} %requires 3dplot.sty to be in same directory, or in your LaTeX installation
+%\usepackage[active,tightpage]{preview}  %generates a tightly fitting border around the work
+%\PreviewEnvironment{tikzpicture}
+%\setlength\PreviewBorder{2mm}
+\usepackage[acronym]{glossaries}
+
+%---------------------------------
+\definecolor{darkblue}{rgb}{0,0,.5}
+\usepackage[
+breaklinks=true, 					%Gibt an, ob Links umgebrochen werden d�rfen
+linktocpage=false, 				%im Inhaltsverzeichnis sind Seitenzahlen Links, nicht Text
+colorlinks=true, 					%Links eingef�rbt
+linkcolor=black, 			%Farbe des verlinkten Textes, Dokument-interne Links
+citecolor=black, 			%Farbe des verlinkten Textes, Links zum Literaturverzeichnis
+filecolor=black, 			%Farbe des verlinkten Textes, Links auf lokale Dateien
+urlcolor=black, 				%Farbe des verlinkten Textes, externe URLs
+frenchlinks=false, 				%Links werden als smallcaps, anstatt farbig dargestellt
+bookmarksnumbered=true		%Kapitelnummern werden im Inhaltsverzeichnis angezeigt
+]{hyperref}								%Package f�r Lesezeichen und Verlinkungen
+%---------------------------------
+\geometry{a4paper, tmargin=3cm,bmargin=2.5cm, left=25mm, right=25mm,headsep=12.5mm, footskip=12.5mm}								%Einrichten der Seitenraender
+\sloppy													%Schlampiger Absatz
+\definecolor{quelltextfarbe}{gray}{0.85}
+\setlength\headheight{16pt} 		%Platz schaffen
+\fancyhf{}											%Kopf- und Fu�zeilen leeren
+%-------------------------------------
+%\pagestyle{fancy}								%Kapitelbezeichnung in der Kopfzeile
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter. #1}{}}  %nur Chaptername und Nummer. anzeigen - muss NACH \pagestyle{...} stehen!
+%\fancypagestyle{plain}{\lhead{}}				%�nderungen bei Kapitelanfang stehen in 2ter Klammer (chapter, maketitle, etc. rufen plain auf)
+\renewcommand{\footrulewidth}{0.4pt}% default is 0pt
+%---------------------------------
+%Definition der Kopf-Fu�zeile, jeweils rechts und links:
+%\rhead{\thepage}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[LE, RO]{\leftmark}								%Seitennummer rechts oben
+%\lhead{\nouppercase \leftmark} 	%Abschnitt links oben
+\fancyfoot[LE, RO]{\thesistitle}
+%\lfoot{\thesistitle}
+\fancyfoot[RE, LO]{\thepage}
+%\rfoot{\thepage}
+%--------------------------------
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}		  %Tabellenspalten mit fester Breite		
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+%--------------------------------
+\setlength{\parindent}{0pt} 		%x pt Einzug zu Absatzbeginn
+%\setlength{\itemsep}{4pt}			%Gibt den Item Abstand innerhalb der Itemize Umgebung an!
+\linespread{1.2}
+%--------------------------------
+\normalem
+	\oddsidemargin   0.0cm
+	\topmargin      -1.0cm         
+	\textheight     24.0cm
+	\textwidth      16.0cm
+	\fboxsep         2.0ex
+	\setlength{\jot}{0.5\baselineskip}
+	\setlength{\captionmargin}{20pt}
+%--------------------------------
+%Makros f�r eine erleichterte Eingabe wiederkehrender Befehle:
+\newcommand{\thesistitle}{Autonomous Landing and Berthing}
+\newcommand{\abb}[1]{\underline{Figure~(\ref{#1})}}
+\newcommand{\tab}[1]{\underline{Table~(\ref{#1})}}
+\newcommand{\glg}[1]{equation{~(\ref{#1})}}
+\newcommand{\kap}[1]{\underline{Chapter~(\ref{#1})}}
+\newcommand{\abschn}[1]{\underline{Abschnitt~(\ref{#1})}}
+\newcommand{\anh}[1]{\underline{Anhang~(\ref{#1})}}
+\newcommand{\sch}[1]{\textit{#1}}
+%--------------------------------
+\newcommand{\simulink}{\textsc{Matlab}/Simulink }
+\newcommand{\mfiles}{M-Files }
+\newcommand{\prn}{PRN-Code }
+\newcommand{\kalman}{\textsc{Kalman}-Filter }
+\newcommand{\cdut}{\cdot}
+\newcommand{\ul}{\underline}
+\newcommand{\ol}{\overline}
+\newcommand{\spod}{\quad \text{.}}
+\newcommand{\tb}{\textbf}
+\newcommand{\ts}{\textsl}
+\newcommand{\tf}{\ttfamily}
+\newcommand{\rf}{\rmfamily}
+%------------------------------
+% Acronyms list
+\makeglossaries
+\newacronym{utc}{UTC}{Coordinated Universal Time}
+%-------------------------------- 
+\begin{document}
+\include{Deckblatt}														%Deckblatt
+\pagenumbering{Roman}
+\renewcommand{\arraystretch}{1.3}
+\include{Abstract}		
+
+\include{Acknowledgements}												%�bersicht
+\tableofcontents%Inhaltsverzeichnis																%Tabellenverzeichnis
+\listoffigures
+ 
+\listoftables
+
+
+%\include{Acronyms}
+
+\newpage
+%\include{Formelzeichen}												  %Formelzeichen
+ 	
+\pagenumbering{arabic}
+%--------------------------------------------------------
+%
+% Kapitel
+%
+% per \include jeweils einf�gen...
+%
+%--------------------------------------------------------
+
+
+% include here
+\include{Intro}
+\include{model}
+\include{requirements}
+\printglossaries
+
+%--------------------------------------------------------
+%
+% Literaturverzeichnis
+%
+%-------------------------------------------------------
+%	\addcontentsline{toc}{chapter}{Bibliography}
+%  \bibliographystyle{abbrv}
+%  \bibliography{literatur}
+%-------------------------------------------------------
+%
+% Anhang
+%
+%-------------------------------------------------------
+%	\begin{appendix}
+%  	\include{appendix}
+%	\end{appendix}
+%--------------------------------	
+\end{document}
+%--------------------------------
+
+
