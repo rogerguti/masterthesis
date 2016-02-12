@@ -1,4 +1,12 @@
-*.[aux]
+*.aux
+*.acn
+*.glo
+*.ist
+*.lof
+*.lot
+*.out
+*.pdf
+*.synctex.gz
 *~
 *.log
 *.toc
