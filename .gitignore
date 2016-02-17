@@ -10,7 +10,7 @@
 *~
 *.log
 *.toc
-.acr
-.alg
-.glg
-.gls
+*.acr
+*.alg
+*.glg
+*.gls
